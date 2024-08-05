@@ -91,9 +91,19 @@
 ### Milestone 6
 1. followCart, unfollowCart
 
+## Stack
+*   Express.js (Nest, ReactNext)
+*   MongoDB
+*   Mongoose
+*   React + Vite
+*   Mantine (Tailwind)
+
 ## Further thoughts
 *   login, 
 *   auth,
 *   createCart, 
 *   removeCard,
+*   followCart, unfollowCart
+*   RequestCartAccess
 *   setCartAccess (owner, modifier, viewer)
+*   BackOffice
