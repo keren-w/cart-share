@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
+const mockUsers = require('../data/users');
 
 const initializeDB = async ()  => {
 
@@ -7,10 +8,7 @@ const initializeDB = async ()  => {
   await mongoose.connection.db.dropCollection('users').catch(err => console.log('No collection to drop'));
 
   // Insert sample data
-  await User.create([
-    { name: 'John Doe', email: 'john@example.com', password: '123456' },
-    { name: 'Jane Doe', email: 'jane@example.com', password: 'abcdef' }
-  ]);
+  await User.create(mockUsers.users);
 
   console.log('Database initialized with sample data');
 }

@@ -1,0 +1,58 @@
+{
+    "users": [
+      {
+        "_id": "64d1f2a3b8c29a1234567890",
+        "name": "John Doe",
+        "activeCarts": [
+          {
+            "_id": "64e8f1a3b8c29a1234567891",
+            "isOwner": true
+          },
+          {
+            "_id": "64f9f2a3b8c29a1234567892",
+            "isOwner": false
+          }
+        ]
+      },
+      {
+        "_id": "650af3a3b8c29a1234567893",
+        "name": "Jane Smith",
+        "activeCarts": [
+          {
+            "_id": "651bf4a3b8c29a1234567894",
+            "isOwner": true
+          }
+        ]
+      },
+      {
+        "_id": "652cf5a3b8c29a1234567895",
+        "name": "Bob Johnson",
+        "activeCarts": [
+          {
+            "_id": "653df6a3b8c29a1234567896",
+            "isOwner": true
+          }
+        ]
+      },
+      {
+        "_id": "654ef7a3b8c29a1234567897",
+        "name": "Alice Brown",
+        "activeCarts": [
+          {
+            "_id": "655ff8a3b8c29a1234567898",
+            "isOwner": true
+          }
+        ]
+      },
+      {
+        "_id": "6560f9a3b8c29a1234567899",
+        "name": "Charlie Davis",
+        "activeCarts": [
+          {
+            "_id": "6571faa3b8c29a123456789a",
+            "isOwner": true
+          }
+        ]
+      }
+    ]
+  }

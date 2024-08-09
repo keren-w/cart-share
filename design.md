@@ -72,7 +72,7 @@
 
 1. init database and hardcoded collections
 2. getUser, getItems, getCart
-3. dispaly basic user, items and cart views
+3. display basic user, items and cart views
 
 ### Milestone 2
 1. updateCart

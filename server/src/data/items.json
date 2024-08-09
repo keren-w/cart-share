@@ -1,0 +1,54 @@
+{
+    "items": [
+      {
+        "_id": "6582fba3b8c29a123456789b",
+        "title": "Enterprise Server",
+        "description": "High-performance server for large-scale data processing",
+        "imageUrls": [
+          "https://example.com/server1.jpg",
+          "https://example.com/server2.jpg"
+        ],
+        "price": 15999.99
+      },
+      {
+        "_id": "6593fca3b8c29a123456789c",
+        "title": "Network Switch",
+        "description": "Managed 48-port Gigabit Ethernet switch",
+        "imageUrls": [
+          "https://example.com/switch1.jpg",
+          "https://example.com/switch2.jpg"
+        ],
+        "price": 2499.99
+      },
+      {
+        "_id": "65a4fda3b8c29a123456789d",
+        "title": "Workstation PC",
+        "description": "High-end workstation for CAD and 3D rendering",
+        "imageUrls": [
+          "https://example.com/workstation1.jpg",
+          "https://example.com/workstation2.jpg"
+        ],
+        "price": 4999.99
+      },
+      {
+        "_id": "65b5fea3b8c29a123456789e",
+        "title": "Enterprise Storage Array",
+        "description": "100TB scalable storage solution",
+        "imageUrls": [
+          "https://example.com/storage1.jpg",
+          "https://example.com/storage2.jpg"
+        ],
+        "price": 29999.99
+      },
+      {
+        "_id": "65c6ffa3b8c29a123456789f",
+        "title": "Firewall Appliance",
+        "description": "Next-generation firewall with advanced threat protection",
+        "imageUrls": [
+          "https://example.com/firewall1.jpg",
+          "https://example.com/firewall2.jpg"
+        ],
+        "price": 8999.99
+      }
+    ]
+  }
