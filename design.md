@@ -21,8 +21,8 @@
 *   id
 * items: [{
     *   id,
-    *  addedBy: [UserIds],
-    * insertTime: *Timestamp*
+    *   addedBy: UserId,
+    *   insertTime: *Timestamp*
     *   updateTime:*Timestamp*\
     }]
 *   owner: *User*
