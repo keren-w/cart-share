@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     '_id': { type: mongoose.Schema.Types.ObjectId},
-    name: { type: String, required: true, unique: true },
+    name: { 
+        firstName: { type: String, required: true },
+        lastName: { type: String, required: true }
+     },
     activeCarts: [{
         '_id': { type: mongoose.Schema.Types.ObjectId, ref: 'Cart' },
         isOwner: { type: Boolean, default: false }
