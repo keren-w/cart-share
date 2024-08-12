@@ -29,6 +29,8 @@
 
 ## APIs: 
 
+### login
+
 #### getUserData
 *   Method: GET
 *   Payload:
