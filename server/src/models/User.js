@@ -30,12 +30,13 @@ UserSchema.set('toJSON', {
       }
   });
 
-  UserSchema.methods = {
+  UserSchema.statics = {
     login(username) {
-        debugger;
-        console.log("method this", this);
         return this.findOne({ 'name.firstName': username });  
     },
+  };
+
+  UserSchema.methods = {
     getUserById(id) {
         return this.find({ _id: id });
     },
