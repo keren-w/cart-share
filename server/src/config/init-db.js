@@ -14,14 +14,13 @@ const initializeDB = async ()  => {
   await mongoose.connection.db.dropCollection('carts').catch(err => console.log('No collection to drop'));
 
   // Insert sample data
+
   await User.create(mockUsers.users);
   console.log('Users collection initialized');
   await Item.create(mockItems.items);
   console.log('Items collection initialized');
   await Cart.create(mockCarts.carts);
   console.log('Carts collection initialized');
-
-  console.log('Database initialized with sample data');
 }
 
 module.exports = initializeDB;

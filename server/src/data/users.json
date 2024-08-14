@@ -27,6 +27,9 @@
           {
             "_id": "651bf4a3b8c29a1234567894",
             "isOwner": true
+          }, {
+            "_id": "652cf5a3b8c29a1234567895",
+            "isOwner": false
           }
         ]
       },
