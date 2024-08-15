@@ -12,9 +12,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-const userRoutes = require('./routes/users');
-
-app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/users', require('./routes/users.routes'));
+app.use('/api/v1/products', require('./routes/products.routes'));
+app.use('/api/v1/carts', require('./routes/carts.routes'));
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
