@@ -36,12 +36,6 @@ UserSchema.set('toJSON', {
     },
   };
 
-  UserSchema.methods = {
-    getUserById(id) {
-        return this.find({ _id: id });
-    },
-};
-
 const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
