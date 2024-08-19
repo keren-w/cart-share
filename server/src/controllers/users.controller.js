@@ -7,7 +7,7 @@ const login = async (req, res) => {
         if (!user) {
             throw new Error('User not found');
         }
-        res.status(200).json({userId: user._id});
+        res.status(200).json({id: user._id, name: user.name});
     } catch (err) {
         res.status(401).json({ message: err.message });
     }

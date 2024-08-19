@@ -4,14 +4,10 @@ export interface IUser {
         id: string;
         username: string;
         name: {
-            title: string;
-            first: string;
-            last: string;
+            firstName: string;
+            lastName: string;
         };
-        email: string;
-        picture: string;
-        gender: string;
-        score: {rounds: number, hits: number};
+        activeCarts: { id: string, isOwner: boolean }[];
 
 };
 
@@ -24,14 +20,10 @@ const initialUserData: IUser = {
     id: '',
     username: '',
     name: {
-        title: '',
-        first: '',
-        last: '',
+        firstName: '',
+        lastName: '',
     },
-    email: '',
-    picture: '',
-    gender: '',
-    score: {rounds: 0, hits: 0},
+    activeCarts: [{ id: '', isOwner: false }]
 };
 
 export const UserContext = createContext<IUserContext>({

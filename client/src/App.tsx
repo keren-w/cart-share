@@ -4,7 +4,7 @@ import { UserContext, UserContextProvider } from './context';
 import GameRunner from './pages/GameRunner';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
-import NavBar from './components/NavBar';
+import TopBar from './components/TopBar';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 const AppContent = () => {
@@ -13,14 +13,14 @@ const AppContent = () => {
   const { name } = userData;
 
   useEffect(() => {
-    if (!name?.first) {
+    if (!name?.firstName) {
       navigate('/login');
     }
   }, [name, navigate])
 
   return (
     <div id="app-layout">
-     <NavBar />
+     <TopBar />
       <div className="page-view">
         <Routes>
           <Route path="/login" element={<Login />} />
