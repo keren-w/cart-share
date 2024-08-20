@@ -7,12 +7,7 @@ export const login = async (username: string) => {
     return response.data;
 };
 
-export const updateUserScore = async (userId: string, score: {rounds: number, hits: number}) => {
-    const response = await axios.patch(`${urlWithProxy}/users/${userId}/score`, {score});
+export const getUserData = async (userId: string) : Promise<IUser> => {
+    const response = await axios.get(`${urlWithProxy}/users/${userId}`);
     return response.data;
-};
-
-export const getLeaderboard = async () => {
-    const response = await axios.get(`${urlWithProxy}/users/`);
-    console.log(response.data.map((user: IUser) => `Username: ${user.username}, Name: ${user.name?.first}, User Score: ${user.score.hits} hits / ${user.score.rounds} rounds`,));
 };

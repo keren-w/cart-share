@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../context/user.context";
 import { useNavigate} from 'react-router-dom';
-import {login} from "../../api";
+import {login, getUserData} from "../../api";
 
 const Login = () => {
-    const {setUserData} = useContext(UserContext);
+    const {setUserData, updateUserData} = useContext(UserContext);
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
 
@@ -15,6 +15,8 @@ const Login = () => {
     const handleSubmit = async () => {
         const response = await login(username);
         setUserData(response);
+        const userData = await getUserData(response.id);
+        updateUserData(userData);
         navigate('/profile');
       };
       

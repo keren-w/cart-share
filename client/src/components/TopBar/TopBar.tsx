@@ -1,18 +1,47 @@
 
-import { useContext } from 'react';
-import { UserContext } from '../../context/user.context';
+import { useState, useContext } from 'react';
+import { IUser, UserContext } from '../../context/user.context';
 import styles from './TopBar.module.css';
 
 const TopBar = () => {
     const { userData } = useContext(UserContext);
-    const { name } = userData;
     return (
         <div className={styles.topBar}>
-            {/* {picture && <img src={picture} alt="profile"/>} */}
             <h3>Cart_Share</h3>
-            {name?.firstName && <h3>Hello {name.firstName}</h3>}
+            <UserMenuIcon userData={userData} />
         </div>
     );
 };
 
 export default TopBar;
+
+export const UserMenuIcon = ({ userData }: { userData: IUser | null }) => {
+    const { name: { firstName } = { firstName: '' }, avatarUrl } = userData || {};
+    const [imageLoaded, setImageLoaded] = useState(false);
+    const [imageError, setImageError] = useState(false);
+
+    if (!firstName) {
+        return null;
+    }
+
+    const displayImageElement = imageLoaded && !imageError;
+
+    return (
+        <div className={styles.userMenuIcon}>
+            {avatarUrl && (
+                <img
+                    src={avatarUrl}
+                    alt={firstName}
+                    onLoad={() => setImageLoaded(true)}
+                    onError={() => setImageError(true)}
+                    style={{ display: displayImageElement ? 'block' : 'none' }}
+                />
+            )}
+            {imageError && (
+                <div className={styles.userIconPlaceholder}>
+                    <span>{firstName}</span>
+                </div>
+            )}
+        </div>
+    );
+};

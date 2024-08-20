@@ -33,7 +33,7 @@ interface IExistingUser extends IUserBase {
     id: string;
 }
 
-type IUser = INewUser | IExistingUser;
+export type IUser = INewUser | IExistingUser;
 
 // function isExistingUser(user: IUser): user is IExistingUser {
 //     return 'id' in user;
@@ -95,7 +95,7 @@ export const UserContextProvider = ({ children }: { children: React.ReactNode })
     const updateUserData = (userData: Partial<IUser>) => dispatch({ type: USER_ACTIONS.UPDATE_USER_DATA, payload: userData });
     
     return (
-       <UserContext.Provider value={{ userData, setUserData, updateUserData }}>
+        <UserContext.Provider value={{ userData, setUserData, updateUserData }}>
             {children}
         </UserContext.Provider>
     );

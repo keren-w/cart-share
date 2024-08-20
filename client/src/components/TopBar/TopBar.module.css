@@ -16,3 +16,25 @@
         gap: 16px;
     }
 }
+
+.userMenuIcon {
+    height: 80px;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    
+    .userIconPlaceholder {
+        background-color: rgb(96, 111, 117);
+        color: white;
+        border-radius: 50%;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
