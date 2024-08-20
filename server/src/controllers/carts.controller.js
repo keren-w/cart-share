@@ -12,5 +12,18 @@ const getAllCarts = async (req, res) => {
     }
 };
 
+const getBaseCartDataByIds = async (ids) => {
+    const carts = await Cart.find({ _id: { $in: ids } });
+    // call a schema method to project base cart data: carts.forEach(cart => cart.getBaseCartData()) /users?ids=1,2,3,4,5
+    return carts;
+};
+
+const getCartById = async (id) => {
+    const cart = await Cart.findById(id);
+    if (!cart) {
+        throw new Error('Cart not found');
+    }
+    return cart;
+};
 
 module.exports = { getAllCarts };

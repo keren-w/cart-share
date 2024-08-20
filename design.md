@@ -75,6 +75,10 @@
 1. init database and hardcoded collections
 2. getUser, getItems, getCart
 3. display basic user, items and cart views
+    1. recieve extended user detail
+    2. profile page with user data and carts
+    3. nav to cart
+    4. nav to shop display
 
 ### Milestone 2
 1. login+storage flow
