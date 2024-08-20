@@ -1,11 +1,11 @@
 import './App.css';
 import { useEffect, useContext } from 'react';
-import { UserContext, UserContextProvider } from './context';
-import GameRunner from './pages/GameRunner';
+import { UserContext, UserContextProvider } from './user.context';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import TopBar from './components/TopBar';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import Profile from './pages/Profile';
 
 const AppContent = () => {
   const { userData } = useContext(UserContext);
@@ -24,7 +24,7 @@ const AppContent = () => {
       <div className="page-view">
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/game" element={<GameRunner />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/404" element={<NotFound />} />
         </Routes>
       </div>

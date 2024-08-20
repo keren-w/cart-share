@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { UserContext } from "../../context";
+import { UserContext } from "../../user.context";
 import { useNavigate} from 'react-router-dom';
 import {login} from "../../api";
 
@@ -15,7 +15,7 @@ const Login = () => {
     const handleSubmit = async () => {
         const response = await login(username);
         setUserData(response);
-        navigate('/game');
+        navigate('/profile');
       };
       
     return (

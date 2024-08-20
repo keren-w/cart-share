@@ -77,20 +77,23 @@
 3. display basic user, items and cart views
 
 ### Milestone 2
-1. updateCart
+1. login+storage flow
 
 ### Milestone 3
-1. Daily expired delete job
+1. updateCart
 
 ### Milestone 4
-1. docker
+1. Daily expired delete job
 
 ### Milestone 5
+1. docker
+
+### Milestone 6
 1. multiple carts
 2. display following cart list choice for user
 3. update different carts (everyone has access to all actions?)
 
-### Milestone 6
+### Milestone 7
 1. followCart, unfollowCart
 
 ## Stack
