@@ -1,7 +1,6 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useReducer } from 'react';
 
-interface IUser {
-    id: string;
+interface IUserBase {
     name: {
         firstName: string;
         lastName: string;
@@ -28,8 +27,19 @@ interface IUser {
     activeCarts: Array<{ id: string; isOwner: boolean }>;
 }
 
-const initialUserData: IUser = {
-    id: '',
+interface INewUser extends IUserBase {}
+
+interface IExistingUser extends IUserBase {
+    id: string;
+}
+
+type IUser = INewUser | IExistingUser;
+
+// function isExistingUser(user: IUser): user is IExistingUser {
+//     return 'id' in user;
+// }
+
+const initialNewUserData: INewUser = {
     name: {
         firstName: '',
         lastName: '',
@@ -41,24 +51,51 @@ const initialUserData: IUser = {
         city: '',
         country: '',
     },
-    activeCarts: [{ id: '', isOwner: false }]
+    activeCarts: []
 };
+
+// const initialExistingUserData: IExistingUser = {
+//     id: '',
+//     ...initialNewUserData
+// };
 
 interface IUserContext {
     userData: IUser;
     setUserData: (userData: IUser) => void;
+    updateUserData: (userData: Partial<IUser>) => void;
 };
 
 export const UserContext = createContext<IUserContext>({
-    userData: initialUserData,
+    userData: initialNewUserData,
     setUserData: () => {},
+    updateUserData: () => {}
 });
 
+
+const USER_ACTIONS = {
+    SET_USER_DATA: 'SET_USER_DATA',
+    UPDATE_USER_DATA: 'UPDATE_USER_DATA',
+} as const;
+
+const reducer = (state: IUser, action: { type: keyof typeof USER_ACTIONS; payload: Partial<IUser> }) => {
+    switch (action.type) {
+        case USER_ACTIONS.SET_USER_DATA:
+            return {...state, ...action.payload};
+        case USER_ACTIONS.UPDATE_USER_DATA:
+            return { ...state, ...action.payload };
+        default:
+            return state;
+    }
+};
+
 export const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const [userData, setUserData] = useState<IUser>(initialUserData);
+
+    const [userData, dispatch] = React.useReducer(reducer, initialNewUserData);
+    const setUserData = (userData: IUser) => dispatch({ type: USER_ACTIONS.SET_USER_DATA, payload: userData });
+    const updateUserData = (userData: Partial<IUser>) => dispatch({ type: USER_ACTIONS.UPDATE_USER_DATA, payload: userData });
     
     return (
-       <UserContext.Provider value={{ userData, setUserData }}>
+       <UserContext.Provider value={{ userData, setUserData, updateUserData }}>
             {children}
         </UserContext.Provider>
     );
