@@ -1,76 +1,172 @@
 {
-    "users": [
-      {
-        "_id": "64d1f2a3b8c29a1234567890",
-        "name": {
-          "firstName": "John",
-          "lastName": "Doe"
-        },
-        "activeCarts": [
-          {
-            "_id": "64e8f1a3b8c29a1234567891",
-            "isOwner": true
-          },
-          {
-            "_id": "64f9f2a3b8c29a1234567892",
-            "isOwner": false
-          }
-        ]
+  "users": [
+    {
+      "_id": "64d1f2a3b8c29a1234567890",
+      "name": {
+        "firstName": "John",
+        "lastName": "Doe"
       },
-      {
-        "_id": "650af3a3b8c29a1234567893",
-        "name": {
-          "firstName": "Jane",
-          "lastName": "Smith"
-        },
-        "activeCarts": [
-          {
-            "_id": "651bf4a3b8c29a1234567894",
-            "isOwner": true
-          }, {
-            "_id": "652cf5a3b8c29a1234567895",
-            "isOwner": false
-          }
-        ]
+      "email": "john.doe@email.com",
+      "phone": "+1-555-123-4567",
+      "username": "johndoe123",
+      "password": "hashed_password_here",
+      "age": 35,
+      "gender": "Male",
+      "location": {
+        "city": "New York",
+        "state": "NY",
+        "country": "USA"
       },
-      {
-        "_id": "652cf5a3b8c29a1234567895",
-        "name": {
-          "firstName": "Bob",
-          "lastName": "Johnson"
-        },
-        "activeCarts": [
-          {
-            "_id": "653df6a3b8c29a1234567896",
-            "isOwner": true
-          }
-        ]
+      "profession": {
+        "jobTitle": "Software Engineer",
+        "company": "Tech Innovations Inc."
       },
-      {
-        "_id": "654ef7a3b8c29a1234567897",
-        "name": {
-          "firstName": "Alice",
-          "lastName": "Brown"
-        },
-        "activeCarts": [
-          {
-            "_id": "655ff8a3b8c29a1234567898",
-            "isOwner": true
-          }
-        ]
+      "socialMedia": {
+        "facebook": "https://facebook.com/johndoe"
       },
-      {
-        "_id": "6560f9a3b8c29a1234567899",
-        "name": {
-          "firstName": "Charlie",
-          "lastName": "Davis"
+      "avatarUrl": "https://example.com/avatars/johndoe.jpg",
+      "activeCarts": [
+        {
+          "_id": "64e8f1a3b8c29a1234567891",
+          "isOwner": true
         },
-        "activeCarts": [
-          {
-            "_id": "6571faa3b8c29a123456789a",
-            "isOwner": true
-          }
-        ]
-      }
-    ]
-  }
+        {
+          "_id": "64f9f2a3b8c29a1234567892",
+          "isOwner": false
+        }
+      ]
+    },
+    {
+      "_id": "650af3a3b8c29a1234567893",
+      "name": {
+        "firstName": "Jane",
+        "lastName": "Smith"
+      },
+      "email": "jane.smith@email.com",
+      "phone": "+1-555-987-6543",
+      "username": "janesmith456",
+      "password": "hashed_password_here",
+      "age": 28,
+      "gender": "Female",
+      "location": {
+        "city": "San Francisco",
+        "state": "CA",
+        "country": "USA"
+      },
+      "profession": {
+        "jobTitle": "Marketing Manager",
+        "company": "Global Marketing Solutions"
+      },
+      "socialMedia": {
+        "facebook": "https://facebook.com/janesmith"
+      },
+      "avatarUrl": "https://example.com/avatars/janesmith.jpg",
+      "activeCarts": [
+        {
+          "_id": "651bf4a3b8c29a1234567894",
+          "isOwner": true
+        },
+        {
+          "_id": "652cf5a3b8c29a1234567895",
+          "isOwner": false
+        }
+      ]
+    },
+    {
+      "_id": "652cf5a3b8c29a1234567895",
+      "name": {
+        "firstName": "Bob",
+        "lastName": "Johnson"
+      },
+      "email": "bob.johnson@email.com",
+      "phone": "+1-555-246-8135",
+      "username": "bobjohnson789",
+      "password": "hashed_password_here",
+      "age": 42,
+      "gender": "Male",
+      "location": {
+        "city": "Chicago",
+        "state": "IL",
+        "country": "USA"
+      },
+      "profession": {
+        "jobTitle": "Financial Analyst",
+        "company": "Midwest Financial Group"
+      },
+      "socialMedia": {
+        "facebook": "https://facebook.com/bobjohnson"
+      },
+      "avatarUrl": "https://example.com/avatars/bobjohnson.jpg",
+      "activeCarts": [
+        {
+          "_id": "653df6a3b8c29a1234567896",
+          "isOwner": true
+        }
+      ]
+    },
+    {
+      "_id": "654ef7a3b8c29a1234567897",
+      "name": {
+        "firstName": "Alice",
+        "lastName": "Brown"
+      },
+      "email": "alice.brown@email.com",
+      "phone": "+1-555-369-2580",
+      "username": "alicebrown101",
+      "password": "hashed_password_here",
+      "age": 31,
+      "gender": "Female",
+      "location": {
+        "city": "Seattle",
+        "state": "WA",
+        "country": "USA"
+      },
+      "profession": {
+        "jobTitle": "UX Designer",
+        "company": "Creative Design Studios"
+      },
+      "socialMedia": {
+        "facebook": "https://facebook.com/alicebrown"
+      },
+      "avatarUrl": "https://example.com/avatars/alicebrown.jpg",
+      "activeCarts": [
+        {
+          "_id": "655ff8a3b8c29a1234567898",
+          "isOwner": true
+        }
+      ]
+    },
+    {
+      "_id": "6560f9a3b8c29a1234567899",
+      "name": {
+        "firstName": "Charlie",
+        "lastName": "Davis"
+      },
+      "email": "charlie.davis@email.com",
+      "phone": "+1-555-147-2589",
+      "username": "charliedavis202",
+      "password": "hashed_password_here",
+      "age": 39,
+      "gender": "Male",
+      "location": {
+        "city": "Austin",
+        "state": "TX",
+        "country": "USA"
+      },
+      "profession": {
+        "jobTitle": "Data Scientist",
+        "company": "AI Innovations Lab"
+      },
+      "socialMedia": {
+        "facebook": "https://facebook.com/charliedavis"
+      },
+      "avatarUrl": "https://example.com/avatars/charliedavis.jpg",
+      "activeCarts": [
+        {
+          "_id": "6571faa3b8c29a123456789a",
+          "isOwner": true
+        }
+      ]
+    }
+  ]
+}

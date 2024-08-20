@@ -1,24 +1,34 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ActiveCartSchema = new Schema({
-    _id: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-    },
-    isOwner: {
-      type: Boolean,
-      required: true,
-    },
-  });
-
-  const UserSchema = new mongoose.Schema({
-    _id: { type: mongoose.Schema.Types.ObjectId },
-    name: {
-        firstName: { type: String, required: true },
-        lastName: { type: String, required: true }
-    },
-    activeCarts: [ActiveCartSchema],
+const UserSchema = new mongoose.Schema({
+  name: {
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true }
+  },
+  email: { type: String, required: true, unique: true },
+  phone: { type: String },
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  age: { type: Number },
+  gender: { type: String },
+  location: {
+    city: { type: String, required: true },
+    state: { type: String },
+    country: { type: String, required: true }
+  },
+  profession: {
+    jobTitle: { type: String },
+    company: { type: String }
+  },
+  socialMedia: {
+    facebook: { type: String }
+  },
+  avatarUrl: { type: String },
+  activeCarts: [{
+    _id: { type: mongoose.Schema.Types.ObjectId, ref: 'Cart' },
+    isOwner: { type: Boolean, default: false }
+  }]
 });
 
 UserSchema.set('toJSON', {
