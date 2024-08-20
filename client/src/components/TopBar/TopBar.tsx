@@ -1,6 +1,6 @@
 
 import { useContext } from 'react';
-import { UserContext } from '../../user.context';
+import { UserContext } from '../../context/user.context';
 import styles from './TopBar.module.css';
 
 const TopBar = () => {

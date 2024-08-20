@@ -1,5 +1,5 @@
 import { useState, useContext, useCallback } from 'react';
-import { UserContext } from '../../user.context';
+import { UserContext } from '../../context/user.context';
 import SideResponseGame from '../../components/SideResponseGame/SideResponseGame';
 import styles from './GameRunner.module.css';
 import {updateUserScore, getLeaderboard} from '../../api';

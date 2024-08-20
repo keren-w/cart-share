@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useContext } from 'react';
-import { UserContext, UserContextProvider } from './user.context';
+import { UserContext, UserContextProvider } from './context/user.context';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import TopBar from './components/TopBar';
