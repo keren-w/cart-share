@@ -19,7 +19,7 @@ const getBaseCartDataByIds = async (ids) => {
 };
 
 const getCartById = async (id) => {
-    const cart = await Cart.findById(id);
+    const cart = await Cart.findById(id); //users/{userId}
     if (!cart) {
         throw new Error('Cart not found');
     }
