@@ -8,7 +8,6 @@ interface IUserBase {
     email: string;
     phone?: string;
     username: string;
-    password: string;
     age?: number;
     gender?: string;
     location: {
@@ -46,7 +45,6 @@ const initialNewUserData: INewUser = {
     },
     email: '',
     username: '',
-    password: '',
     location: {
         city: '',
         country: '',
@@ -90,7 +88,7 @@ const reducer = (state: IUser, action: { type: keyof typeof USER_ACTIONS; payloa
 
 export const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
 
-    const [userData, dispatch] = React.useReducer(reducer, initialNewUserData);
+    const [userData, dispatch] = useReducer(reducer, initialNewUserData);
     const setUserData = (userData: IUser) => dispatch({ type: USER_ACTIONS.SET_USER_DATA, payload: userData });
     const updateUserData = (userData: Partial<IUser>) => dispatch({ type: USER_ACTIONS.UPDATE_USER_DATA, payload: userData });
     

@@ -34,16 +34,19 @@ const UserSchema = new mongoose.Schema({
 UserSchema.set('toJSON', {
     transform: function(doc, ret) {
         delete ret.password; 
-        // ret.id = ret._id;    
-        // delete ret._id;      
+        ret.id = ret._id;    
+        delete ret._id;      
         return ret;          
       }
   });
 
   UserSchema.statics = {
     login(username) {
-        return this.findOne({ 'name.firstName': username });  
+      return this.findOne({ 'name.firstName': username });  
     },
+    getUserProfileData(userId) {
+        return this.findById(userId).select('name email location activeCarts');
+    }
   };
 
 const User = mongoose.model('User', UserSchema);
