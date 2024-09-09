@@ -11,3 +11,8 @@ export const getUserData = async (userId: string) : Promise<IUser> => {
     const response = await axios.get(`${urlWithProxy}/users/${userId}`);
     return response.data;
 };
+
+export const getUserCarts = async (userId: string) => {
+    const response = await axios.get(`${urlWithProxy}/users//${userId}/carts`);
+    return response.data;
+};

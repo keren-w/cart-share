@@ -14,9 +14,9 @@ const login = async (req, res) => {
 };
 
 const getUserProfile = async (req, res) => { // User Profile = business profile data
-    const { id } = req.params;
+    const { userId } = req.params;
     try {
-        const user = await User.getUserProfileData(id);
+        const user = await User.getUserProfileData(userId);
         if (!user) {
             throw new Error('User not found');
         }

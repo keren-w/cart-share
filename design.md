@@ -55,6 +55,15 @@
     *   userId
 *   Return Value: *User*
 
+### getUserCarts
+*   Method: GET
+*   Payload:
+    *   userId
+*   Return Value: {\
+        owner: *Cart*[],\
+        following: *Cart*[]\
+    }
+
 #### getItems
 *   Method: GET
 *   Payload:

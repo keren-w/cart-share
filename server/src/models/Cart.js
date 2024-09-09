@@ -8,7 +8,8 @@ const cartSchema = new mongoose.Schema({
         insertTime: { type: Date, default: Date.now },
         updateTime: { type: Date, default: Date.now }
     }],
-    owner: { type: String, required: true },
+    owner: { type: mongoose.Schema.Types.ObjectId, required: true },
+    following: [mongoose.Schema.Types.ObjectId],
 });
 
 const Cart = mongoose.model('Cart', cartSchema);
