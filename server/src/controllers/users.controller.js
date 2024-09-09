@@ -3,11 +3,11 @@ const User = require('../models/User');
 const login = async (req, res) => {
     const { username } = req.body;
     try {
-        const {id, name} = await User.login(username);
-        if (!id) {
+        const user = await User.login(username);
+        if (!user) {
             throw new Error('User not found');
         }
-        res.status(200).json({id, name});
+        res.status(200).json(user);
     } catch (err) {
         res.status(401).json({ message: err.message });
     }

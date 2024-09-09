@@ -42,7 +42,7 @@ UserSchema.set('toJSON', {
 
   UserSchema.statics = {
     login(username) {
-      return this.findOne({ 'name.firstName': username });  
+      return this.findOne({ 'name.firstName': username }).select('name avatarUrl');  
     },
     getUserProfileData(userId) {
         return this.findById(userId).select('name email location activeCarts');

@@ -4,11 +4,28 @@
 
 #### Users
 *   id
-*   name
-*   activeCarts: [{
-    *   id, 
-    *   isOwner\
-    }]
+*   name: {
+    *   firstName
+    *   lastName\
+    },
+*   phone,
+*   username
+*   password
+*   age
+*   gender
+*   location: {
+    *   city
+    *   state
+    *   country\
+    }
+*   profession: {
+    *   jobTitle
+    *   company\
+    }
+*   socialMedia: {
+    *   facebook\
+    }
+*   avatarUrl
 
 #### Items
 *   id
@@ -26,6 +43,7 @@
     *   updateTime:*Timestamp*\
     }]
 *   owner: *User*
+*   following: *User*[]
 
 ## APIs: 
 
@@ -99,6 +117,9 @@
 
 ### Milestone 7
 1. followCart, unfollowCart
+
+### Milestone 8
+1. Cart permissions: fetch cart data by permission (according to cart sharing configurations: all users, shared users, praticipants only)
 
 ## Stack
 *   Express.js (Nest, ReactNext)

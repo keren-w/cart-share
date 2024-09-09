@@ -6,7 +6,7 @@ const Profile = () => {
     console.log(userData);
     return (
         <div>
-            {userData?.name?.firstName}'s Profile
+            Carts
         </div>
     );
 }
