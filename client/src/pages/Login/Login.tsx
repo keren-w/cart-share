@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../context/user.context";
 import { useNavigate} from 'react-router-dom';
-import {login, getUserData} from "../../api";
+import {login, getUserData, getUserCarts} from "../../api";
 
 const Login = () => {
     const {setUserData, updateUserData} = useContext(UserContext);
@@ -16,7 +16,8 @@ const Login = () => {
         const response = await login(username);
         setUserData(response);
         const userData = await getUserData(response.id);
-        updateUserData(userData);
+        const userCarts = await getUserCarts(response.id);
+        updateUserData({...userData, ...userCarts});
         navigate('/profile');
       };
       

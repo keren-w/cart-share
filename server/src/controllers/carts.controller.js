@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Cart = require('../models/Cart');
 
 const getAllCarts = async (req, res) => {
@@ -20,26 +21,27 @@ const getCartById = async (id) => {
     return cart;
 };
 
-const getCartsForUser = async (userId) => {
+const getCartsForUser = async (req, res) => {
+    const { userId } = req.params;
     try {
-    const userID = mongoose.Types.ObjectId(userId);
-    const carts = await Cart.aggregate([
-        {
-          $facet: {
-            ownedCarts: [
-              { $match: { owner: userID } },
-              { $project: Cart.getCartProjection() }
-            ],
-            followedCarts: [
-              { $match: { following: userID } },
-              { $project: Cart.getCartProjection() }
-            ]
-          }
-        }
-      ]);
+        const userID = mongoose.Types.ObjectId.createFromHexString(userId.toString());
+        const carts = await Cart.aggregate([
+            {
+                $facet: {
+                    ownedCarts: [
+                        { $match: { owner: userID } },
+                        { $project: Cart.getCartMetadata() }
+                    ],
+                    followedCarts: [
+                        { $match: { following: userID } },
+                        { $project: Cart.getCartMetadata() }
+                    ]
+                }
+            }
+        ]);
 
-      res.status(200).json({ ownedCarts: carts[0].ownedCarts, followedCarts: carts[0].followedCarts });
-    }    
+        res.status(200).json({ ownedCarts: carts[0].ownedCarts, followedCarts: carts[0].followedCarts });
+    }
     catch (err) {
         res.status(500).json({ message: err.message });
     }
