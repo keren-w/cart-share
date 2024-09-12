@@ -14,9 +14,7 @@ const cartSchema = new mongoose.Schema({
 
 cartSchema.statics.getCartMetadata = () => ({
     _id: 1,
-    items: 1,
-    owner: 1,
-    following: 1
+    items: 1
 });
 
 const Cart = mongoose.model('Cart', cartSchema);

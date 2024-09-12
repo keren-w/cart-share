@@ -40,7 +40,12 @@ const getCartsForUser = async (req, res) => {
             }
         ]);
 
-        res.status(200).json({ ownedCarts: carts[0].ownedCarts, followedCarts: carts[0].followedCarts });
+        res.status(200).json({
+            carts: {
+                owned: carts[0].ownedCarts,
+                following: carts[0].followedCarts
+            }
+        });
     }
     catch (err) {
         res.status(500).json({ message: err.message });

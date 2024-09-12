@@ -1,44 +1,8 @@
 import React, { createContext, useReducer } from 'react';
+import {IUser} from "../types/users.types";
 
-interface IUserBase {
-    name: {
-        firstName: string;
-        lastName: string;
-    };
-    email: string;
-    phone?: string;
-    username: string;
-    age?: number;
-    gender?: string;
-    location: {
-        city: string;
-        state?: string;
-        country: string;
-    };
-    profession?: {
-        jobTitle?: string;
-        company?: string;
-    };
-    socialMedia?: {
-        facebook?: string;
-    };
-    avatarUrl?: string;
-    activeCarts: Array<{ id: string; isOwner: boolean }>;
-}
-
-interface INewUser extends IUserBase {}
-
-interface IExistingUser extends IUserBase {
-    id: string;
-}
-
-export type IUser = INewUser | IExistingUser;
-
-// function isExistingUser(user: IUser): user is IExistingUser {
-//     return 'id' in user;
-// }
-
-const initialNewUserData: INewUser = {
+const initialUserData: IUser = {
+    id: '',
     name: {
         firstName: '',
         lastName: '',
@@ -49,13 +13,7 @@ const initialNewUserData: INewUser = {
         city: '',
         country: '',
     },
-    activeCarts: []
 };
-
-// const initialExistingUserData: IExistingUser = {
-//     id: '',
-//     ...initialNewUserData
-// };
 
 interface IUserContext {
     userData: IUser;
@@ -64,7 +22,7 @@ interface IUserContext {
 };
 
 export const UserContext = createContext<IUserContext>({
-    userData: initialNewUserData,
+    userData: initialUserData,
     setUserData: () => {},
     updateUserData: () => {}
 });
@@ -88,7 +46,7 @@ const reducer = (state: IUser, action: { type: keyof typeof USER_ACTIONS; payloa
 
 export const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
 
-    const [userData, dispatch] = useReducer(reducer, initialNewUserData);
+    const [userData, dispatch] = useReducer(reducer, initialUserData);
     const setUserData = (userData: IUser) => dispatch({ type: USER_ACTIONS.SET_USER_DATA, payload: userData });
     const updateUserData = (userData: Partial<IUser>) => dispatch({ type: USER_ACTIONS.UPDATE_USER_DATA, payload: userData });
     

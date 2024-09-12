@@ -25,10 +25,6 @@ const UserSchema = new mongoose.Schema({
     facebook: { type: String }
   },
   avatarUrl: { type: String },
-  activeCarts: [{
-    _id: { type: mongoose.Schema.Types.ObjectId, ref: 'Cart' },
-    isOwner: { type: Boolean, default: false }
-  }]
 });
 
 UserSchema.set('toJSON', {
@@ -45,7 +41,7 @@ UserSchema.set('toJSON', {
       return this.findOne({ 'name.firstName': username }).select('name avatarUrl');  
     },
     getUserProfileData(userId) {
-        return this.findById(userId).select('name email location activeCarts');
+        return this.findById(userId).select('name email location');
     }
   };
 
