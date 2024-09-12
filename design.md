@@ -8,7 +8,7 @@
     *   firstName
     *   lastName\
     },
-*   phone,
+*   phone
 *   username
 *   password
 *   age
@@ -38,7 +38,7 @@
 *   id
 * items: [{
     *   id,
-    *   addedBy: UserId,
+    *   addedBy: UserId
     *   insertTime: *Timestamp*
     *   updateTime:*Timestamp*\
     }]
@@ -100,12 +100,8 @@
 *   Initially we assume there's only one cart and one user
 
 1. init database and hardcoded collections
-2. getUser, getItems, getCart
-3. display basic user, items and cart views
-    1. recieve extended user detail
-    2. profile page with user data and carts
-    3. nav to cart
-    4. nav to shop display
+3. display user profile with owned/followed carts
+4. display cart with items
 
 ### Milestone 2
 1. login+storage flow
