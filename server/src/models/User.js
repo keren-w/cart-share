@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const { createModel } = require('../models/utils');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -27,15 +28,6 @@ const userSchema = new mongoose.Schema({
   avatarUrl: { type: String },
 });
 
-userSchema.set('toJSON', {
-    transform: function(doc, ret) {
-        delete ret.password; 
-        ret.id = ret._id;    
-        delete ret._id;      
-        return ret;          
-      }
-  });
-
   userSchema.statics = {
     login(username) {
       return this.findOne({ 'name.firstName': username }).select('name avatarUrl');  
@@ -45,7 +37,7 @@ userSchema.set('toJSON', {
     }
   };
 
-const User = mongoose.model('User', userSchema);
+const User = createModel('User', userSchema);
 
 module.exports = User;
 

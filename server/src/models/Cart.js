@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { createModel } = require('../models/utils');
 
 const cartSchema = new mongoose.Schema({
     items: [{
@@ -10,14 +11,6 @@ const cartSchema = new mongoose.Schema({
     following: [mongoose.Schema.Types.ObjectId],
 });
 
-cartSchema.set('toJSON', {
-    transform: function(doc, ret) {
-        ret.id = ret._id;    
-        delete ret._id;      
-        return ret;          
-      }
-  });
-
   cartSchema.statics = {
     getCartMetadata: () => ({
           _id: 1,
@@ -25,6 +18,6 @@ cartSchema.set('toJSON', {
       })
   }
 
-const Cart = mongoose.model('Cart', cartSchema);
+const Cart = createModel('Cart', cartSchema);
 
 module.exports = Cart;
