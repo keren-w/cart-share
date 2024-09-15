@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true }
@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
   avatarUrl: { type: String },
 });
 
-UserSchema.set('toJSON', {
+userSchema.set('toJSON', {
     transform: function(doc, ret) {
         delete ret.password; 
         ret.id = ret._id;    
@@ -36,7 +36,7 @@ UserSchema.set('toJSON', {
       }
   });
 
-  UserSchema.statics = {
+  userSchema.statics = {
     login(username) {
       return this.findOne({ 'name.firstName': username }).select('name avatarUrl');  
     },
@@ -45,7 +45,7 @@ UserSchema.set('toJSON', {
     }
   };
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
 

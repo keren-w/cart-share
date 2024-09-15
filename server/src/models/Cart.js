@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
-    '_id': { type: mongoose.Schema.Types.ObjectId },
     items: [{
-        '_id': { type: mongoose.Schema.Types.ObjectId, ref: 'Item' },
         addedBy: [String],
         insertTime: { type: Date, default: Date.now },
         updateTime: { type: Date, default: Date.now }
@@ -12,10 +10,20 @@ const cartSchema = new mongoose.Schema({
     following: [mongoose.Schema.Types.ObjectId],
 });
 
-cartSchema.statics.getCartMetadata = () => ({
-    _id: 1,
-    items: 1
-});
+cartSchema.set('toJSON', {
+    transform: function(doc, ret) {
+        ret.id = ret._id;    
+        delete ret._id;      
+        return ret;          
+      }
+  });
+
+  cartSchema.statics = {
+    getCartMetadata: () => ({
+          _id: 1,
+          items: 1
+      })
+  }
 
 const Cart = mongoose.model('Cart', cartSchema);
 

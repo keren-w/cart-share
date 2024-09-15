@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Cart = require('../models/Cart');
+const {transformId} = require('../models/utils');
 
 const getAllCarts = async (req, res) => {
     try {
@@ -42,8 +43,8 @@ const getCartsForUser = async (req, res) => {
 
         res.status(200).json({
             carts: {
-                owned: carts[0].ownedCarts,
-                following: carts[0].followedCarts
+                owned: transformId(carts[0].ownedCarts),
+                following: transformId(carts[0].followedCarts)
             }
         });
     }
