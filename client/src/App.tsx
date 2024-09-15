@@ -10,13 +10,13 @@ import Profile from './pages/Profile';
 const AppContent = () => {
   const { userData } = useContext(UserContext);
   const navigate = useNavigate();
-  const { name } = userData;
+  const { id } = userData;
 
   useEffect(() => {
-    if (!name?.firstName) {
+    if (!id) {
       navigate('/login');
     }
-  }, [name, navigate])
+  }, [id, navigate])
 
   return (
     <div id="app-layout">
